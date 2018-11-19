@@ -1,0 +1,12 @@
+<%= simple_form_for(@field) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :street %>
+    <%= f.input :city %>
+    <%= f.input :category, collection: ["tennis", "football", "basketball", "squash", "volleyball", "badminton", "table tennis"] %>
+    <%= f.input :price_per_hour %>
+    <%= f.input :picture %>
+    <%= f.input :opening_hours %>
+    <%= f.submit %>
+<% end %>
+
