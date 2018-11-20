@@ -10,6 +10,10 @@ class FieldsController < ApplicationController
 
   end
 
+  def index
+    @fields = Field.all
+  end
+
   def new
     @field = Field.new
   end
