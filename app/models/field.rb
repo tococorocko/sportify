@@ -1,10 +1,11 @@
 class Field < ApplicationRecord
   belongs_to :user
   has_many :bookings
+  CATEGORY = ["tennis", "football", "basketball", "squash", "volleyball", "badminton", "table tennis"]
 
   validates :name, presence: true
   validates :description, presence: true
-  validates :category, inclusion: { in: ["tennis", "football", "basketball", "squash", "volleyball", "badminton", "table tennis"]}
+  validates :category, inclusion: { in: CATEGORY }
   validates :price_per_hour, presence: true
   validates :street, presence: true
   validates :city, presence: true
