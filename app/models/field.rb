@@ -12,4 +12,6 @@ class Field < ApplicationRecord
   validates :picture, presence: true
   validates :opening_hours, presence: true
 
+  mount_uploader :picture, PhotoUploader
+
 end
