@@ -4,21 +4,6 @@
   </div>
 
   <div class="city-banner-filter">
-    <div class="dropdown">
-      <button value='Choose a category' class="btn-sportify-green dropdown-toggle" data-toggle="dropdown">
-      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <% Field::CATEGORY.each do |cat| %>
-        <li>
-          <%= cat.capitalize %>
-        </li>
-        <% end %>
-      </ul>
-    </div>
-    <%= simple_form_for([@fields, @city_name]) do |f| %>
-      <%= f.input :category, collection: Field::CATEGORY %>
-      <%= f.button :submit %>
-    <% end %>
-
     <%= link_to 'Choose category', '', class:'btn-sportify-green' %>
   </div>
 
