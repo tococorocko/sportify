@@ -32,6 +32,7 @@ class FieldsController < ApplicationController
   end
 
   def show
+    @user = User.find(@field.user_id)
   end
 
   def edit
