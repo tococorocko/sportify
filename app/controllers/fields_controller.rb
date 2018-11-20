@@ -3,6 +3,7 @@ class FieldsController < ApplicationController
     @city_name = params[:city]
     @city_name.capitalize!
     @fields = Field.where(city: @city_name)
+  end
 
   def new
     @field = Field.new
@@ -17,6 +18,11 @@ class FieldsController < ApplicationController
     else
       render new_field_path
     end
+  end
+
+  def show
+    @field = Field.find(params[:id])
+    @user = User.find(@field.user_id)
   end
 
   private
