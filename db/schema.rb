@@ -39,7 +39,6 @@ ActiveRecord::Schema.define(version: 2018_11_20_101212) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.string "photo"
     t.index ["user_id"], name: "index_fields_on_user_id"
   end
 
