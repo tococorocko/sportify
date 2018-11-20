@@ -1,8 +1,14 @@
 class FieldsController < ApplicationController
   def city
     @city_name = params[:city]
-    @city_name.capitalize!
-    @fields = Field.where(city: @city_name)
+    @fields = Field.where(city: @city_name.capitalize)
+    if params[:query].present?
+      @fields = Field.where(city: @city_name.capitalize, category: params[:query])
+    else
+      @fields = Field.where(city: @city_name.capitalize)
+    end
+
+  end
 
   def new
     @field = Field.new

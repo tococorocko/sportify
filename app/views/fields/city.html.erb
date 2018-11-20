@@ -4,7 +4,9 @@
   </div>
 
   <div class="city-banner-filter">
-    <%= link_to 'Choose category', '', class:'btn-sportify-green' %>
+    <% form_tag "fields/city/#{@city_name}", method: :get do %>
+    <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Choose your category" %>
+    <% end %>
   </div>
 
 </div>
