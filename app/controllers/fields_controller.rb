@@ -1,8 +1,34 @@
 class FieldsController < ApplicationController
+  
   before_action :set_field, only: [:show, :edit, :update, :destroy]
 
   def index
     @fields = policy_scope(Field).order(created_at: :desc)
+  end
+
+  def city
+    @city_name = params[:city]
+    @fields = Field.where(city: @city_name.capitalize)
+    if params[:query].present?
+      @fields = Field.where(city: @city_name.capitalize, category: params[:query])
+    else
+      @fields = Field.where(city: @city_name.capitalize)
+    end
+  end
+
+  def new
+    @field = Field.new
+  end
+
+  def create
+    @field = Field.new(field_params)
+    # @field.user = params[:current_user]
+    @field.user = current_user
+    if @field.save
+      redirect_to fields_path
+    else
+      render new_field_path
+    end
   end
 
   def show
@@ -21,7 +47,7 @@ class FieldsController < ApplicationController
 
   def destroy
     @field.destroy
-    redirect_to fields_url, notice: 'Field was successfully destroyed.'
+    redirect_to fields_url, notice: 'Field was successfully deleted.'
   end
 
   private
