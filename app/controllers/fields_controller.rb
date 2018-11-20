@@ -1,5 +1,5 @@
 class FieldsController < ApplicationController
-  
+  skip_before_action :authenticate_user!, only: [:home, :city, :field]
   before_action :set_field, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -18,6 +18,7 @@ class FieldsController < ApplicationController
 
   def new
     @field = Field.new
+    authorize @field
   end
 
   def create
@@ -52,6 +53,7 @@ class FieldsController < ApplicationController
   end
 
   private
+
   def set_field
     @field = Field.find(params[:id])
     authorize @field
