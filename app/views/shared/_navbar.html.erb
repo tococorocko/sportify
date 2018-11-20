@@ -3,7 +3,9 @@
 <!--   <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "logo.png", height: 50 %>
   <% end %> -->
-  <a href=""><i class="fas fa-volleyball-ball"></i> Sportify</a>
+  <%= link_to root_path do %>
+  <i class="fas fa-volleyball-ball"></i> Sportify</a>
+  <% end %>
   <!-- Right Navigation -->
   <% if user_signed_in? %>
 
@@ -19,8 +21,13 @@
               <% end %>
             </li>
             <li>
-              <%= link_to "#" do %>
+              <%= link_to fields_path do %>
                 <i class="fas fa-flag"></i> <%= t(".settings", default: "My Fields") %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to new_field_path do %>
+                <i class="fas fa-flag"></i> <%= t(".settings", default: "Add a Field") %>
               <% end %>
             </li>
             <li>
