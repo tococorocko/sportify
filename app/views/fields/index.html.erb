@@ -1,7 +1,19 @@
+<h1>My fields</h1>
+
 <% @fields.each do |field| %>
 <ul>
   <li>
     <%= field.name %>
+    <%= field.user.email %>
+    <%= link_to 'Show', field %>
+
+    <% if policy(field).edit? %>
+      <%= link_to 'Edit', edit_field_path(field) %>
+    <% end %>
+
+    <% if policy(field).destroy? %>
+      <%= link_to 'Destroy', field, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
   </li>
 </ul>
 <% end %>
