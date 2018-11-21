@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/fields/city/:city' => "fields#city", as: :city
-  resources :fields
-  resources :bookings, except: :delete
+  resources :bookings, only: :index
+  resources :fields do
+    resources :bookings, except: [:delete, :index]
+  end
+
+
 end

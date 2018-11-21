@@ -16,6 +16,10 @@ class FieldsController < ApplicationController
     end
   end
 
+  def index
+    @fields = Field.all
+  end
+
   def new
     @field = Field.new
     authorize @field
@@ -30,6 +34,7 @@ class FieldsController < ApplicationController
     else
       render new_field_path
     end
+    authorize @field
   end
 
   def show

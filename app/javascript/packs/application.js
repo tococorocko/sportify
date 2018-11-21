@@ -1,4 +1,6 @@
 import "bootstrap";
+import 'plugins/flatpickr';
+
 
 $(document).ready(function() {
   $("#myCarousel").on("slide.bs.carousel", function(e) {
@@ -24,3 +26,6 @@ $(document).ready(function() {
     }
   });
 });
+
+
+
