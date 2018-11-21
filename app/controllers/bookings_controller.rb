@@ -10,8 +10,12 @@ class BookingsController < ApplicationController
     @user = current_user
     @booking.user = @user
     @booking.field = @field
-    if @booking.save
-      redirect_to bookings_path
+    if @booking.check_real?
+      if @booking.save
+        redirect_to bookings_path
+      else
+        render 'new'
+      end
     else
       render 'new'
     end
