@@ -1,7 +1,6 @@
 <%= render '/shared/banner' %>
 
 
-<div class="container">
-  <%= link_to "Berlin", city_path(:berlin) %>
-
-</div>
+<%= render 'shared/carousel', city: :berlin, city_name: 'Berlin' %>
+<%= render 'shared/carousel', city: :paris, city_name: 'Paris' %>
+<%= render 'shared/carousel', city: :london, city_name: 'London' %>
