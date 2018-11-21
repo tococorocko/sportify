@@ -1,7 +1,7 @@
 class FieldPolicy < ApplicationPolicy
 
   def show?
-    true
+    return true
   end
 
   def create?
