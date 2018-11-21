@@ -1,0 +1,25 @@
+<img class="city-banner" id="field-img"style="height: 100vh; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path @field.picture %>);">
+  <h1 class="text-center field-text">
+    <%= @field.name %>
+  </h1>
+
+<div class="container field-info">
+  <div class="row">
+    <div class="col-md-8">
+      <p><strong>Description</strong></p>
+      <p><%= @field.description %></p>
+      <%= cl_image_tag @field.picture, height: 300, width: 400, crop: :fill %>
+    </div>
+    <div class="col-md-4">
+      <p><strong>Category </strong></p>
+      <p><%= @field.category %></p>
+      <p><strong>Owned by </strong></p>
+      <p><%= @user.email %></p>
+      <p><strong>Opening Hours</strong></p>
+      <p><%= @field.opening_hours %></p>
+      <p><strong>Price</strong></p>
+      <p><strong><%= @field.price_per_hour %></strong> € per hour</p>
+      <%= link_to "Book Now", new_field_booking_path, class: "btn-sportify-green"  %>
+    </div>
+  </div>
+</div>

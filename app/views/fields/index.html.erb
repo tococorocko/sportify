@@ -1,9 +1,46 @@
 <div class="container">
-  <% @fields.each do |field| %>
-  <ul>
-    <li>
-      <%= field.name %>
-    </li>
-  </ul>
-  <% end %>
-</div>
+
+  <h1>My fields</h1>
+
+  <div class="container">
+    <div class="row">
+      <% @fields.each do |field| %>
+      <div class="col-xs-12 col-sm-4 col-md-3 padding-around">
+        <!-- insert <div class="card"> -->
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= field.picture %>');">
+            <div class="card-category"><p><%= field.category %></p>
+            </div>
+            <div class="card-description">
+              <h2> <%= field.name %> </h2>
+            </div>
+              <%= link_to field, class: "card-link" do%>
+              <% end  %>
+          </div>
+          <div class="card-body">
+            <%= link_to field do %>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <button type="button" class="btn btn-sportify-green">
+                  Pending Bookings <span class="badge badge-light"><%= field.bookings.where(status: "pending").count %></span>
+                </button>
+              </li>
+            </ul>
+            <% end %>
+          </div>
+            <div class="card-body">
+              <% if policy(field).edit? %>
+              <%= link_to edit_field_path(field), class: "" do %>
+              <i class="fas fa-sliders-h"></i>
+              <% end  %>
+              <% end %>
+              <% if policy(field).destroy? %>
+              <%= link_to field, method: :delete, data: { confirm: 'Do you really want to delete this field?', class: "text-align-right" } do %>
+              <i class="fas fa-trash-alt"></i>
+              <% end %>
+              <% end %>
+            </div>
+          </div>
+          <% end  %>
+        </div>
+      </div>
+    </div>
