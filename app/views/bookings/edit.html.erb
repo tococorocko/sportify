@@ -1,0 +1,9 @@
+<div class="booking-form">
+  <div class="col-xs-offset-3 col-xs-6">
+
+    <%= simple_form_for [@field, @booking] do |f| %>
+      <%= f.input :status, collection: ["pending", "accepted", "rejected"] %>
+      <%= f.button :submit, class:'btn-sportify-green' %>
+    <% end %>
+  </div>
+</div>
