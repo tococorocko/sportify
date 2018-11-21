@@ -27,10 +27,28 @@ class BookingsController < ApplicationController
     authorize @booking
   end
 
+  def check_booking
+    @field = Field.find(params[:field])
+    @bookings = Booking.where(field:@field)
+    authorize @bookings
+  end
+
   def edit
+    @field = Field.find(params[:field_id])
+    @booking = Booking.find(params[:id])
+    authorize @booking
   end
 
   def update
+    @field = Field.find(params[:field_id])
+    @booking = Booking.find(params[:id])
+    @booking.update(params_booking)
+    if @booking.update(params_booking)
+      redirect_to check_booking_path(@field), notice: 'Field was successfully updated.'
+    else
+      render :edit
+    end
+    authorize @booking
   end
 
   private

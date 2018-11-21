@@ -21,7 +21,9 @@
             <ul class="list-group list-group-flush">
               <li class="list-group-item">
                 <button type="button" class="btn btn-sportify-green">
+                  <%= link_to check_booking_path(field) do %>
                   Pending Bookings <span class="badge badge-light"><%= field.bookings.where(status: "pending").count %></span>
+                  <% end %>
                 </button>
               </li>
             </ul>

@@ -4,13 +4,17 @@ class BookingPolicy < ApplicationPolicy
   #   true
   # end
 
+  def check_booking?
+    return true
+  end
+
   def create?
     return true
   end
 
-  # def update?
-  #   record.user == user
-  # end
+  def update?
+    return true
+  end
 
   # def destroy?
   #   record.user == user
