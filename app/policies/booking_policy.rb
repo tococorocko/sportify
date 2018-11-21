@@ -4,9 +4,9 @@ class BookingPolicy < ApplicationPolicy
   #   true
   # end
 
-  # def create?
-  #   return true
-  # end
+  def create?
+    return true
+  end
 
   # def update?
   #   record.user == user

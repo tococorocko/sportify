@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 2018_11_20_155145) do
     t.text "opening_hours"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "photo"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_fields_on_user_id"
   end

@@ -19,7 +19,7 @@
       <p><%= @field.opening_hours %></p>
       <p><strong>Price</strong></p>
       <p><strong><%= @field.price_per_hour %></strong> € per hour</p>
-      <%= link_to "Book Now", new_field_booking_path, class: "btn-sportify-green"  %>
+      <%= link_to "Book Now", new_field_booking_path(@field), class: "btn-sportify-green"  %>
     </div>
   </div>
 </div>
