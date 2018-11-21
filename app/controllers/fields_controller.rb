@@ -16,6 +16,10 @@ class FieldsController < ApplicationController
     end
   end
 
+  def index
+    @fields = Field.all
+  end
+
   def new
     @field = Field.new
     authorize @field

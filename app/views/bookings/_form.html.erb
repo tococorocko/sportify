@@ -1,0 +1,12 @@
+<div class="booking-form">
+  <div class="col-xs-offset-3 col-xs-6">
+
+    <%= simple_form_for [@field, @booking] do |f| %>
+      <%= f.input :start_date, as: :string, input_html: { class: 'datepicker' } %>
+
+      <%= f.input :end_date, as: :string, input_html: { class: 'datepicker' } %>
+      <%= f.button :submit, class:'btn-sportify-green' %>
+    <% end %>
+
+</div>
+</div>
