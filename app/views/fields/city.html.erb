@@ -1,6 +1,6 @@
 <div class="city-banner">
   <div class="city-banner-title">
-    <h1>Fields available in <%= @city_name.capitalize %></h1>
+    <h1 class="text-center">Fields available in <%= @city_name.capitalize %></h1>
   </div>
 
   <div class="city-banner-filter">
@@ -15,7 +15,7 @@
   <div class="row">
     <div class="field-cards">
       <% @fields.each do |field| %>
-        <div class="field-card col-xs-12 col-sm-6 col-md-4" style='background-image: <%= field.picture %>'>
+        <div class="field-card col-xs-12 col-sm-6 col-md-4" style="background-image: url('<%= field.picture %>')">
 
           <div class="field-card-icon">
             <% case field.category %>

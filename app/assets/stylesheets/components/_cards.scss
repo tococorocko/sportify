@@ -1,11 +1,16 @@
 .field-cards {
   margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .field-card {
   height: 200px;
   width: 300px;
   position: relative;
+  background: cover;
+  background-position: center;
   background-color: $green;
   border-radius: 3px;
   margin: 5px;
