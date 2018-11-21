@@ -1,4 +1,8 @@
 class BookingsController < ApplicationController
+  def index
+    @bookings = policy_scope(Booking).order(created_at: :desc)
+  end
+    
   def new
     @field = Field.find(params[:field_id])
     @booking = Booking.new
