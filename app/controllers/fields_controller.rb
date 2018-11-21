@@ -1,5 +1,5 @@
 class FieldsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home, :city, :field]
+  skip_before_action :authenticate_user!, only: [:home, :city, :field, :show]
   before_action :set_field, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -35,6 +35,7 @@ class FieldsController < ApplicationController
 
   def show
     @user = User.find(@field.user_id)
+    authorize @field
   end
 
   def edit
