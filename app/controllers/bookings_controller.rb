@@ -2,10 +2,11 @@ class BookingsController < ApplicationController
   def index
     @bookings = policy_scope(Booking).order(created_at: :desc)
   end
-    
+
   def new
     @field = Field.find(params[:field_id])
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
@@ -23,14 +24,13 @@ class BookingsController < ApplicationController
     else
       render 'new'
     end
+    authorize @booking
   end
 
   def edit
-
   end
 
   def update
-
   end
 
   private
