@@ -24,7 +24,7 @@
         </div>
       </div>
 
-    <% @fields[3..8].each_slice(3).to_a.each do |trio| %>
+    <% @fields.where(city: 'Berlin')[3..8].each_slice(3).to_a.each do |trio| %>
 
       <div class="item">
         <div class="container">
@@ -60,7 +60,7 @@
     </a>
   </div>
 
-  <h2><%= link_to 'Paris', city_path(:paris) %></h2>
+   <h2><%= link_to 'Paris', city_path(:paris) %></h2>
   <div id="myCarousel2" class="carousel slide" data-ride="carousel" data-interval="false">
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
@@ -85,7 +85,7 @@
         </div>
       </div>
 
-    <% @fields[3..8].each_slice(3).to_a.each do |trio| %>
+    <% @fields.where(city: 'Paris')[3..8].each_slice(3).to_a.each do |trio| %>
 
       <div class="item">
         <div class="container">
@@ -121,7 +121,7 @@
     </a>
   </div>
 
-  <h2><%= link_to 'London', city_path(:london) %></h2>
+   <h2><%= link_to 'London', city_path(:london) %></h2>
   <div id="myCarousel3" class="carousel slide" data-ride="carousel" data-interval="false">
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
@@ -146,7 +146,7 @@
         </div>
       </div>
 
-    <% @fields[3..8].each_slice(3).to_a.each do |trio| %>
+    <% @fields.where(city: 'London')[3..8].each_slice(3).to_a.each do |trio| %>
 
       <div class="item">
         <div class="container">
