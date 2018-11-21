@@ -30,6 +30,7 @@ class FieldsController < ApplicationController
     else
       render new_field_path
     end
+    authorize @field
   end
 
   def show

@@ -1,6 +1,9 @@
 .padding-around {
   padding-bottom: 15px,
 }
+¨.margin-bottom {
+  margin-bottom: 5px;
+}
 
 .card {
   height: 175px;
@@ -42,6 +45,7 @@
   opacity: 0;
   height: 175px;
 }
+
 .card-link:hover {
   opacity: 0.1;
 }
