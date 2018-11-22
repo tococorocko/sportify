@@ -1,6 +1,13 @@
 <div class="city-banner">
   <div class="city-banner-title">
     <h1 class="text-center">Fields available in <%= @city_name.capitalize %></h1>
+    <%= form_tag city_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Search a category"
+      %>
+    <% end %>
   </div>
 
   <div class="city-banner-filter">
@@ -11,12 +18,12 @@
 
 </div>
 
-<div class="container">
+<div class="field-cards-container">
   <div class="row">
     <div class="field-cards">
       <% @fields.each do |field| %>
-        <div class="field-card col-xs-12 col-sm-6 col-md-4" style="background-image: url('<%= field.picture %>')">
-
+        <div class="field-card col-xs-12 col-sm-6 col-md-4">
+          <%= cl_image_tag field.picture, height: 200, width: 300, crop: :fill %>
           <div class="field-card-icon">
             <% case field.category %>
             <% when 'football' %>
@@ -31,7 +38,7 @@
               <%= image_tag ('tennis-raquet-and-ball.svg') %>
             <% when 'badminton' %>
               <%= image_tag ('badminton.svg') %>
-            <% when 'table tennis' %>
+            <% when 'ping pong' %>
               <%= image_tag ('pingpong.svg') %>
             <% end %>
           </div>
