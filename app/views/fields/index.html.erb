@@ -20,11 +20,15 @@
             <%= link_to field do %>
             <ul class="list-group list-group-flush">
               <li class="list-group-item">
-                <button type="button" class="btn btn-sportify-green">
-                  <%= link_to check_booking_path(field) do %>
-                  Pending Bookings <span class="badge badge-light"><%= field.bookings.where(status: "pending").count %></span>
+                  <% if field.bookings.where(status: "pending").count == 0 %>
+                    <%= link_to check_booking_path(field), class: 'btn-sportify-white' do %>
+                      Pending Bookings <span class="badge badge-dark">0</span>
+                    <% end %>
+                  <% else %>
+                    <%= link_to check_booking_path(field), class:'btn-sportify-green' do %>
+                    Pending Bookings <span class="badge badge-light"><%= field.bookings.where(status: "pending").count %></span>
+                    <% end %>
                   <% end %>
-                </button>
               </li>
             </ul>
             <% end %>

@@ -56,6 +56,9 @@
 
 .card-body ul {
   margin-bottom: 5px;
+  li {
+    text-align: center;
+  }
 }
 
 .card-body button {
@@ -68,4 +71,16 @@
   &:hover {
     opacity: 1;
   }
+}
+
+.badge-light {
+  margin-bottom: 4px;
+  background-color: $light-gray;
+  color: $green;
+}
+
+.badge-dark {
+  margin-bottom: 4px;
+  background-color: $green;
+  color: $light-gray;
 }

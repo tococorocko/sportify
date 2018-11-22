@@ -1,4 +1,4 @@
-<div class="city-banner">
+<div class="city-banner" style="background-image: linear-gradient(-205deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.51) 50%), url('https://kitt.lewagon.com/placeholder/cities/<%=@city_name.downcase%>')">
   <div class="city-banner-title">
     <h1 class="text-center">Fields available in <%= @city_name.capitalize %></h1>
     <%= form_tag city_path, method: :get do %>
