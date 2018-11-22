@@ -11,9 +11,18 @@
   align-items: center;
   h1 {
     color: white;
+    margin-bottom: 50px;
+  }
+  form {
+    max-width: 50vw;
+  }
+  .city-banner-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
   }
 }
-
 
 .new-book-banner {
   background-size: cover;
