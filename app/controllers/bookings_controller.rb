@@ -46,7 +46,7 @@ class BookingsController < ApplicationController
     if @booking.update(params_booking)
       redirect_to check_booking_path(@field), notice: 'Field was successfully updated.'
     else
-      render :edit
+      redirect_to check_booking_path(@field), notice: 'Sorry! There was a problem. Please try again.'
     end
     authorize @booking
   end
