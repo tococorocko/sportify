@@ -8,11 +8,10 @@ class FieldsController < ApplicationController
 
   def city
     @city_name = params[:city]
-    @fields = Field.where(city: @city_name.capitalize)
     if params[:query].present?
-      @fields = Field.where(city: @city_name.capitalize, category: params[:query])
+      @fields = Field.where("city ILIKE ? AND category ILIKE ?", @city_name, "%#{params[:query]}%")
     else
-      @fields = Field.where(city: @city_name.capitalize)
+      @fields = Field.where("city ILIKE ?", @city_name)
     end
   end
 

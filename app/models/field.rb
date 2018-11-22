@@ -1,7 +1,7 @@
 class Field < ApplicationRecord
   belongs_to :user
   has_many :bookings
-  CATEGORY = ["tennis", "football", "basketball", "squash", "volleyball", "badminton", "table tennis"]
+  CATEGORY = ["tennis", "football", "basketball", "squash", "volleyball", "badminton", "ping pong"]
 
   validates :name, presence: true
   validates :description, presence: true
@@ -13,5 +13,4 @@ class Field < ApplicationRecord
   validates :opening_hours, presence: true
 
   mount_uploader :picture, PhotoUploader
-
 end
