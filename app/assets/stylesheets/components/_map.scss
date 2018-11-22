@@ -1,0 +1,14 @@
+.mapboxgl-popup-content {
+  font-family: $body-font;
+  p {
+    margin-bottom: 0;
+    padding: 2px 0px;
+  };
+  #field-title {
+    font-size: 16px;
+  };
+}
+
+.mapboxgl-popup {
+  max-width: 200px;
+}
