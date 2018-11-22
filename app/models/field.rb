@@ -14,4 +14,6 @@ class Field < ApplicationRecord
 
   mount_uploader :picture, PhotoUploader
 
+  geocoded_by :street
+  after_validation :geocode, if: :will_save_change_to_street?
 end
