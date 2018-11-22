@@ -20,3 +20,9 @@
   color: rgb(255, 255, 255);
   opacity: 0.6;
 }
+
+.banner-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
