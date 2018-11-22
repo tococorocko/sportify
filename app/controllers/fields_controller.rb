@@ -10,9 +10,24 @@ class FieldsController < ApplicationController
     @city_name = params[:city]
     if params[:query].present?
       @fields = Field.where("city ILIKE ? AND category ILIKE ?", @city_name, "%#{params[:query]}%")
+      @markers = @fields.map do |field|
+        {
+          lng: field.longitude,
+          lat: field.latitude,
+          infoWindow: { content: render_to_string(partial: "/fields/map_window", locals: { field: field }) }
+        }
+      end
     else
       @fields = Field.where("city ILIKE ?", @city_name)
+      @markers = @fields.map do |field|
+        {
+          lng: field.longitude,
+          lat: field.latitude,
+          infoWindow: { content: render_to_string(partial: "/fields/map_window", locals: { field: field }) }
+        }
     end
+    end
+
   end
 
   def new
