@@ -14,8 +14,11 @@ class Field < ApplicationRecord
 
   mount_uploader :picture, PhotoUploader
 
+  def complete_address
+    street + " " + city
+  end
 
-  geocoded_by :street
+  geocoded_by :complete_address
   after_validation :geocode, if: :will_save_change_to_street?
 
 end

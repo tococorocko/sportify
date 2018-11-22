@@ -7,8 +7,20 @@
   #field-title {
     font-size: 16px;
   };
+  a {
+    text-decoration: none;
+    color: rgb(50,50,50);
+    font-weight: bold;
+    font-size: 15px;
+    margin-bottom: 10px;
+    &:hover, &:focus {
+    text-decoration: none;
+    color: rgb(150,150,150);
+    }
+  }
 }
 
 .mapboxgl-popup {
   max-width: 200px;
+
 }
