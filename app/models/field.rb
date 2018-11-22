@@ -1,7 +1,7 @@
 class Field < ApplicationRecord
   belongs_to :user
   has_many :bookings
-  CATEGORY = ["tennis", "football", "basketball", "squash", "volleyball", "badminton", "table tennis"]
+  CATEGORY = ["tennis", "football", "basketball", "squash", "volleyball", "badminton", "ping pong"]
 
   validates :name, presence: true
   validates :description, presence: true
@@ -14,6 +14,8 @@ class Field < ApplicationRecord
 
   mount_uploader :picture, PhotoUploader
 
+
   geocoded_by :street
   after_validation :geocode, if: :will_save_change_to_street?
+
 end
