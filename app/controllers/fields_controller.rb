@@ -72,8 +72,12 @@ class FieldsController < ApplicationController
   end
 
   def destroy
-    @field.destroy
-    redirect_to fields_url, notice: 'Field was successfully deleted.'
+    if @field.bookings.present?
+      redirect_to fields_url, alert: "You can't delete a field with pending bookings! 👎🏻"
+    else
+      @field.destroy
+      redirect_to fields_url, notice: 'Field was successfully deleted.'
+    end
   end
 
   private
