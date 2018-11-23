@@ -1,3 +1,9 @@
+User.destroy_all
+
+Field.destroy_all
+Booking.destroy_all
+
+
 User.create!({
   first_name: "Daniel",
   last_name: "Trujilo",
