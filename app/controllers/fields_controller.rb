@@ -3,7 +3,7 @@ class FieldsController < ApplicationController
   before_action :set_field, only: [:show, :edit, :update, :destroy]
 
   def index
-    @fields = policy_scope(Field).order(created_at: :desc)
+    @fields = policy_scope(Field).order(:id)
   end
 
   def city
