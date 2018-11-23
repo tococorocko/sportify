@@ -1,7 +1,3 @@
-Booking.destroy_all
-Field.destroy_all
-User.destroy_all
-
 User.create!({
   first_name: "Daniel",
   last_name: "Trujilo",
@@ -38,16 +34,17 @@ User.create!({
 })
 
 field_1= Field.new({
-  name: "Ronaldo Soccer School",
+
+  name: "Blito sport center",
   description: "Natural grass field with barbacue and freezer. Have an amazing day and play footbal with friends.",
-  street: "8 Anzengruberstraße",
+  street: "Am Köllnischen Park 5",
   city: "Berlin",
-  category: "football",
-  price_per_hour: "50",
-  opening_hours: "08:00",
-  user_id: "1"
+  category: "basketball",
+  price_per_hour: "15",
+  opening_hours: "06:00",
+  user_id: "2"
 })
-field_1.remote_picture_url = "https://i.dailymail.co.uk/i/pix/2013/09/04/article-0-1B9E7CD8000005DC-351_634x425.jpg"
+field_1.remote_picture_url = "https://arlingtonva.s3.amazonaws.com/wp-content/uploads/sites/17/2014/08/towers-park.jpg"
 field_1.save
 
 field_2= Field.new({
@@ -64,20 +61,19 @@ field_2.remote_picture_url = "https://i.dailymail.co.uk/i/pix/2013/09/04/article
 field_2.save
 
 field_3= Field.new({
-  name: "Millionarios football team",
-  description: "Play the true latin america footbal. Every gol we shoot fire guns!",
-  street: "Breite Str 45",
+
+  name: "Tricolor sport",
+  description: "Amazing volleyball square, play with your friends and family!",
+  street: "Bodestraße 1-3",
   city: "Berlin",
-  category: "football",
+  category: "volleyball",
   price_per_hour: "25",
   opening_hours: "12:00",
   user_id: "1"
 })
-field_3.remote_picture_url = "https://i.dailymail.co.uk/i/pix/2013/09/04/article-0-1B9E7CB3000005DC-521_634x430.jpg"
+
+field_3.remote_picture_url = "https://www.centralpark.com/downloads/5594/download/volleyball.jpg?cb=c371453907622627fcd464b9d54294e3&w=640"
 field_3.save
-
-
-
 
 
 
@@ -109,7 +105,9 @@ field_5.save
 
 field_6= Field.new({
   name: "China ping pong club",
-  description: "Come and challange the best ping pong player from UK. I will kick you ass.",
+
+  description: "Come and challange the best ping UK pong player. I will kick you ass.",
+
   street: "45 Great Marlborough St, Soho",
   city: "London",
   category: "ping pong",
@@ -161,12 +159,65 @@ field_9= Field.new({
 field_9.remote_picture_url = "http://www.theseoulstop.com/badminton/pictures/seoul-forest-park/badminton-7.jpg"
 field_9.save
 
+field_10= Field.new({
+  name: "Ronaldo Soccer School",
+  description: "Natural grass field with barbacue and freezer. Have an amazing day and play footbal with friends.",
+  street: "8 Anzengruberstraße",
+  city: "Berlin",
+  category: "football",
+  price_per_hour: "50",
+  opening_hours: "08:00",
+  user_id: "1"
+})
+field_10.remote_picture_url = "https://i.dailymail.co.uk/i/pix/2013/09/04/article-0-1B9E7CD8000005DC-351_634x425.jpg"
+field_10.save
 
 
+field_11= Field.new({
+  name: "Millionarios football team",
+  description: "Play the true latin america footbal. Every gol we shoot fire guns!",
+  street: "Breite Str 45",
+  city: "Berlin",
+  category: "football",
+  price_per_hour: "25",
+  opening_hours: "12:00",
+  user_id: "1"
+})
+field_11.remote_picture_url = "https://i.dailymail.co.uk/i/pix/2013/09/04/article-0-1B9E7CB3000005DC-521_634x430.jpg"
+field_11.save
+
+field_12= Field.new({
+  name: "RF german way",
+  description: "Tennis is good. Come and play!",
+  street: "Mehringdamm 32",
+  city: "Berlin",
+  category: "tennis",
+  price_per_hour: "25",
+  opening_hours: "12:00",
+  user_id: "2"
+})
+field_12.remote_picture_url = "https://tennissquare.gr/wp-content/uploads/2017/03/SAM_3334.jpg"
+field_12.save
+
+
+Booking.create!({
+  start_date: "Mon, 27 Nov 2018 14:00:00",
+  end_date: "Mon, 27 Nov 2018 16:00:0",
+  field_id: "1",
+  user_id: "1"
+})
+
+Booking.create!({
+  start_date: "Mon, 28 Nov 2018 14:00:00",
+  end_date: "Mon, 28 Nov 2018 16:00:0",
+  field_id: "12",
+  user_id: "4"
+})
 
 Booking.create!({
   start_date: "Mon, 26 Nov 2018 14:00:00",
   end_date: "Mon, 26 Nov 2018 16:00:0",
-  field_id: "1",
-  user_id: "1"
+  field_id: "11",
+  user_id: "2"
 })
+
