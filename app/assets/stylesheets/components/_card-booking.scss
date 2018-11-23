@@ -1,3 +1,8 @@
+#form-status-1 {
+  width: 75%;
+  font-size: 16px;
+}
+
 .booking-container {
   background-color: white;
   margin-bottom: 15px;
@@ -28,37 +33,32 @@
   position: relative;
 }
 
-.card-status-booking-item-pending {
+.card-status-booking-item {
   color: white;
   padding: 10px 15px;
   border-radius: 4px;
   font-weight: bold;
-  background: #B2DDF7;
   margin: 0, 5px;
 }
 
-.card-status-booking-item-rejected {
-  color: white;
-  padding: 10px 15px;
-  border-radius: 4px;
-  font-weight: bold;
+.pending {
+  background: #B2DDF7;
+
+}
+
+.rejected {
   background: #EF6F6C;
 }
 
-.card-status-booking-item-accepted {
-  color: white;
-  padding: 10px 15px;
-  border-radius: 4px;
-  font-weight: bold;
+.accepted {
   background: #6AD58B;
 }
 
 .card-description-detail-booking {
   color: black;
-}
-
-.card-description-detail-booking p {
-  margin: 0;
+    p {
+    margin: 0;
+  }
 }
 
 .card-booking p {

@@ -13,7 +13,7 @@
           <div class="card-description-booking">
             <h2> <%= booking.field.name %> </h2>
           </div>
-          <%= link_to root_path, class: "card-link-booking" do%>
+          <%= link_to booking.field, class: "card-link-booking" do%>
           <% end  %>
         </div>
 
@@ -46,13 +46,7 @@
   <!--       One of three columns -->
   <div class="card-booking">
       <div class="card-detail-booking">
-        <% if booking.status == "accepted" %>
-          <p class="card-status-booking-item-accepted text-center"> <%= booking.status %> </p>
-        <% elsif booking.status == "rejected" %>
-          <p class="card-status-booking-item-rejected text-center"> <%= booking.status %> </p>
-        <% else %>
-        <p class="card-status-booking-item-pending text-center"> <%= booking.status %> </p>
-        <% end %>
+        <p class="card-status-booking-item <%=booking.status  %> text-center"><%=booking.status  %> </p>
         </div>
         <div>
         </div>

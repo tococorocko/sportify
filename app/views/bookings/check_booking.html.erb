@@ -2,7 +2,7 @@
   <h1>Pending Bookings of my Fields</h1>
 
   <% @bookings.each do |booking| %>
-  <div class="booking-container">
+  <div id="booking_<%= booking.id %>" class="booking-container <%=booking.status  %> ">
     <div class="row">
       <div class="col-sm-3">
   <!--       One of three columns -->
@@ -13,7 +13,7 @@
           <div class="card-description-booking">
             <h2> <%= booking.field.name %> </h2>
           </div>
-          <%= link_to root_path, class: "card-link-booking" do%>
+          <%= link_to booking.field, class: "card-link-booking" do%>
           <% end  %>
         </div>
 
@@ -45,7 +45,9 @@
   <!--       One of three columns -->
       <div class="card-booking">
         <div class="card-detail-booking">
+          <div id="form-status-1">
           <%= render 'form_booking', field: @field, booking: @bookings.find(booking.id) %>
+          </div>
         </div>
       </div>
       </div>

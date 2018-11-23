@@ -43,11 +43,22 @@ class BookingsController < ApplicationController
     @field = Field.find(params[:field_id])
     @booking = Booking.find(params[:id])
     @booking.update(params_booking)
-    if @booking.update(params_booking)
+    if @booking.save
       redirect_to check_booking_path(@field), notice: 'Field was successfully updated.'
     else
-      redirect_to check_booking_path(@field), notice: 'Sorry! There was a problem. Please try again.'
+      render 'check_booking'
     end
+    # if @booking.save
+    #   respond_to do |format|
+    #     format.html { redirect_to check_booking_path(@field), notice: "Field was successfully updated." }
+    #     format.js  # <-- will render `app/views/reviews/create.js.erb`
+    #   end
+    # else
+    #   respond_to do |format|
+    #     format.html { render 'check_booking', notice: "Error" }
+    #     format.js  # <-- idem
+    #   end
+    # end
     authorize @booking
   end
 
