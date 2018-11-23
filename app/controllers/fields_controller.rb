@@ -10,9 +10,24 @@ class FieldsController < ApplicationController
     @city_name = params[:city]
     if params[:query].present?
       @fields = Field.where("city ILIKE ? AND category ILIKE ?", @city_name, "%#{params[:query]}%")
+      @markers = @fields.map do |field|
+        {
+          lng: field.longitude,
+          lat: field.latitude,
+          infoWindow: { content: render_to_string(partial: "/fields/map_window", locals: { field: field }) }
+        }
+      end
     else
       @fields = Field.where("city ILIKE ?", @city_name)
+      @markers = @fields.map do |field|
+        {
+          lng: field.longitude,
+          lat: field.latitude,
+          infoWindow: { content: render_to_string(partial: "/fields/map_window", locals: { field: field }) }
+        }
     end
+    end
+
   end
 
   def new
@@ -35,6 +50,14 @@ class FieldsController < ApplicationController
   def show
     @user = User.find(@field.user_id)
     authorize @field
+    fields_collection = Field.where(id: params[:id])
+    @markers = fields_collection.map do |field|
+      {
+        lat: field.latitude,
+        lng: field.longitude,
+        infoWindow: { content: render_to_string(partial: "/shared/map_window", locals: { field: field }) }
+      }
+    end
   end
 
   def edit
@@ -49,8 +72,12 @@ class FieldsController < ApplicationController
   end
 
   def destroy
-    @field.destroy
-    redirect_to fields_url, notice: 'Field was successfully deleted.'
+    if @field.bookings.present?
+      redirect_to fields_url, alert: "You can't delete a field with pending bookings! 👎🏻"
+    else
+      @field.destroy
+      redirect_to fields_url, notice: 'Field was successfully deleted.'
+    end
   end
 
   private
@@ -62,9 +89,9 @@ class FieldsController < ApplicationController
 
   def field_params
     params.require(:field).permit(:name, :description, :street, :city, :category,
-                                  :price_per_hour, :picture, :opening_hours)
+                                  :price_per_hour, :picture, :opening_hours,
+                                  :latitude, :longitude)
   end
 
 end
 
-#  @fields = current_user.fields

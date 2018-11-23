@@ -1,5 +1,4 @@
 .city-banner {
-  background-image: linear-gradient(-225deg, rgba(0, 120, 1, 0.6) 0%, rgba(4, 48, 1, 0.74) 50%), url('https://www.fototouren-berlin.de/wp-content/uploads/2014/10/blaue-stunde-berlin.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -11,9 +10,18 @@
   align-items: center;
   h1 {
     color: white;
+    margin-bottom: 50px;
+  }
+  form {
+    max-width: 50vw;
+  }
+  .city-banner-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
   }
 }
-
 
 .new-book-banner {
   background-size: cover;

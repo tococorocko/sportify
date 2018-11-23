@@ -1,4 +1,4 @@
-<div class="city-banner">
+<div class="city-banner" style="background-image: linear-gradient(-205deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.51) 50%), url('https://kitt.lewagon.com/placeholder/cities/<%=@city_name.downcase%>')">
   <div class="city-banner-title">
     <h1 class="text-center">Fields available in <%= @city_name.capitalize %></h1>
     <%= form_tag city_path, method: :get do %>
@@ -18,37 +18,29 @@
 
 </div>
 
-<div class="field-cards-container">
-  <div class="row">
-    <div class="field-cards">
-      <% @fields.each do |field| %>
-        <div class="field-card col-xs-12 col-sm-6 col-md-4">
-          <%= cl_image_tag field.picture, height: 200, width: 300, crop: :fill %>
-          <div class="field-card-icon">
-            <% case field.category %>
-            <% when 'football' %>
-              <%= image_tag ('football.svg') %>
-            <% when 'basketball' %>
-              <%= image_tag ('basketball.svg') %>
-            <% when 'squash' %>
-              <%= image_tag ('squash.svg') %>
-            <% when 'volleyball' %>
-              <%= image_tag ('volleyball.svg') %>
-            <% when 'tennis' %>
-              <%= image_tag ('tennis-raquet-and-ball.svg') %>
-            <% when 'badminton' %>
-              <%= image_tag ('badminton.svg') %>
-            <% when 'ping pong' %>
-              <%= image_tag ('pingpong.svg') %>
-            <% end %>
-          </div>
+<div class="main-container">
+  <div class="field-cards">
+    <div class="row">
+      <div class="field-cards-container">
+        <% @fields.each do |field| %>
+          <div class="field-card col-xs-12 col-sm-6 col-md-4">
+            <%= cl_image_tag field.picture, height: 200, width: 300, crop: :fill %>
+            <div class="field-card-icon">
+              <%= image_tag field.get_logo %>
+            </div>
 
-          <div class="field-card-title">
-            <h1><%= field.name %></h1>
+            <div class="field-card-title">
+              <h1><%= field.name %></h1>
+            </div>
+            <%= link_to '', field %>
           </div>
-          <%= link_to '', field %>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
+
+  <div
+    id="map"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 </div>

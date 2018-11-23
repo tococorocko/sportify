@@ -14,8 +14,29 @@ class Field < ApplicationRecord
 
   mount_uploader :picture, PhotoUploader
 
+  def complete_address
+    street + " " + city
+  end
 
-  geocoded_by :street
+  geocoded_by :complete_address
   after_validation :geocode, if: :will_save_change_to_street?
 
+  def get_logo
+    case category
+    when 'football'
+      'football.svg'
+    when 'basketball'
+      'basketball.svg'
+    when 'squash'
+      'squash.svg'
+    when 'volleyball'
+      'volleyball.svg'
+    when 'tennis'
+      'tennis-raquet-and-ball.svg'
+    when 'badminton'
+      'badminton.svg'
+    when 'ping pong'
+      'pingpong.svg'
+    end
+  end
 end
