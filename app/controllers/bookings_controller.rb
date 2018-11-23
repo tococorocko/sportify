@@ -15,14 +15,13 @@ class BookingsController < ApplicationController
     @user = current_user
     @booking.user = @user
     @booking.field = @field
-    if @booking.check_real?
-      if @booking.save
-        redirect_to bookings_path
-      else
-        render 'new'
-      end
+    if @booking.check_real? && @booking.save
+      redirect_to bookings_path
     else
+      flash[:alert] = "Incorrect date, please try again"
       render 'new'
+      flash.delete(:alert)
+
     end
     authorize @booking
   end
