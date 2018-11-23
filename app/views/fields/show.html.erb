@@ -1,21 +1,21 @@
-<div class="city-banner" id="field-img"style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path @field.picture %>);">
+<div id="field-img"style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path @field.picture %>);">
   <h1 class="text-center field-text">
-    <%= @field.name %>
+    <%= image_tag @field.get_logo, class:'show-logo' %> <%= @field.name %> <%= image_tag @field.get_logo, class:'show-logo' %>
   </h1>
   <div class="field-info">
     <div class="row">
-      <div class="col-md-8 col-xs-12">
+      <div class="col-xs-12">
         <p><strong>Description</strong></p>
         <p><%= @field.description %></p>
+      </div>
+      <div class="col-md-8 col-xs-12">
         <%= cl_image_tag @field.picture, height: 300, width: 400, crop: :fill %>
       </div>
       <div class="col-md-4 col-xs-12">
-        <p><strong>Category </strong></p>
-        <p><%= @field.category.capitalize %></p>
         <p><strong>Address </strong></p>
         <p><%= @field.street %> - <%= @field.city %></p>
         <p><strong>Owned by </strong></p>
-        <p><%= @user.email %></p>
+        <p><%= @user.first_name %> <%= @user.last_name %></p>
         <p><strong>Opening Hours</strong></p>
         <p><%= @field.opening_hours %></p>
         <div class="price-tag">
