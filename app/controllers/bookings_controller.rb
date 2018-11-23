@@ -28,8 +28,10 @@ class BookingsController < ApplicationController
 
   def check_booking
     @field = Field.find(params[:field])
-    @bookings = Booking.where(field:@field)
-    authorize @bookings
+    @bookings_pending = Booking.where(field:@field, status: 'pending')
+    @bookings_others = Booking.where(field:@field, status: ['accepted', 'rejected'])
+    authorize @bookings_pending
+    authorize @bookings_others
   end
 
   def edit

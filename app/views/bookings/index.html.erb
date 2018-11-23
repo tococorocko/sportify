@@ -1,4 +1,5 @@
 <div class="container">
+  <div class="main-booking-container">
   <h1>My Bookings</h1>
 
   <% @bookings.each do |booking| %>
@@ -8,7 +9,7 @@
   <!--       One of three columns -->
         <div class="card-booking" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= booking.field.picture %>');">
           <div class="card-category-booking">
-            <p><%= booking.field.category %></p>
+            <%= image_tag booking.field.get_logo %>
           </div>
           <div class="card-description-booking">
             <h2> <%= booking.field.name %> </h2>
@@ -22,7 +23,7 @@
   <!--       One of three columns -->
         <div class="card-booking">
           <div class="card-detail-booking">
-            <p>Address:</p>
+            <p><strong>Address</strong></p>
           </div>
           <div class="card-description-detail-booking">
             <p> <%= booking.field.street %> </p>
@@ -34,7 +35,7 @@
   <!--       One of three columns -->
         <div class="card-booking">
           <div class="card-detail-booking">
-            <p>Time:</p>
+            <p><strong>Time</strong></p>
           </div>
           <div class="card-description-detail-booking">
             <p> <%= booking.start_date %> </p>
@@ -43,16 +44,15 @@
         </div>
       </div>
       <div class="col-sm-3">
-  <!--       One of three columns -->
-  <div class="card-booking">
-      <div class="card-detail-booking">
-        <p class="card-status-booking-item <%=booking.status  %> text-center"><%=booking.status  %> </p>
+    <!--       One of three columns -->
+        <div class="card-booking">
+          <div class="card-detail-booking">
+            <p class="card-status-booking-item <%=booking.status  %> text-center"><%=booking.status .upcase %> </p>
+            </div>
+          </div>
         </div>
-        <div>
-        </div>
-      </div>
       </div>
     </div>
-  </div>
   <% end %>
+</div>
 </div>

@@ -1,13 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
-
-
 User.create!({
   first_name: "Daniel",
   last_name: "Trujilo",
@@ -16,7 +6,7 @@ User.create!({
 })
 
 User.create!({
-  first_name: "Amelie",
+  first_name: "Amélie",
   last_name: "Boudier",
   email: "amelie.boudier01@gmail.com",
   password: "amelie.boudier01@gmail.com"
@@ -44,6 +34,7 @@ User.create!({
 })
 
 field_1= Field.new({
+
   name: "Blito sport center",
   description: "Natural grass field with barbacue and freezer. Have an amazing day and play footbal with friends.",
   street: "Am Köllnischen Park 5",
@@ -70,6 +61,7 @@ field_2.remote_picture_url = "https://i.dailymail.co.uk/i/pix/2013/09/04/article
 field_2.save
 
 field_3= Field.new({
+
   name: "Tricolor sport",
   description: "Amazing volleyball square, play with your friends and family!",
   street: "Bodestraße 1-3",
@@ -79,8 +71,10 @@ field_3= Field.new({
   opening_hours: "12:00",
   user_id: "1"
 })
+
 field_3.remote_picture_url = "https://www.centralpark.com/downloads/5594/download/volleyball.jpg?cb=c371453907622627fcd464b9d54294e3&w=640"
 field_3.save
+
 
 
 field_4= Field.new({
@@ -111,7 +105,9 @@ field_5.save
 
 field_6= Field.new({
   name: "China ping pong club",
+
   description: "Come and challange the best ping UK pong player. I will kick you ass.",
+
   street: "45 Great Marlborough St, Soho",
   city: "London",
   category: "ping pong",
@@ -224,6 +220,4 @@ Booking.create!({
   field_id: "11",
   user_id: "2"
 })
-
-
 
