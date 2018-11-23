@@ -35,7 +35,7 @@ User.create!({
 User.create!({
   first_name: "Rich",
   last_name: "OGrady",
-  email: "rich.o.g@gmail.com",
+  email: "rich@gmail.com",
   password: "rich.o.g@gmail.com"
 })
 
