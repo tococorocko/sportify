@@ -20,6 +20,8 @@ class BookingsController < ApplicationController
     else
       flash[:alert] = "Incorrect date, please try again"
       render 'new'
+      flash.delete(:alert)
+
     end
     authorize @booking
   end
