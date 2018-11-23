@@ -1,57 +1,126 @@
 <div class="container">
-  <h1>Pending Bookings of my Fields</h1>
+  <div class="main-booking-container">
+    <h1>Pending Bookings of my Fields</h1>
 
-  <% @bookings.each do |booking| %>
-  <div id="booking_<%= booking.id %>" class="booking-container <%=booking.status  %> ">
-    <div class="row">
-      <div class="col-sm-3">
-  <!--       One of three columns -->
-        <div class="card-booking" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= booking.field.picture %>');">
-          <div class="card-category-booking">
-            <p><%= booking.field.category %></p>
-          </div>
-          <div class="card-description-booking">
-            <h2> <%= booking.field.name %> </h2>
-          </div>
-          <%= link_to booking.field, class: "card-link-booking" do%>
-          <% end  %>
-        </div>
+    <% if @bookings_pending.present? %>
+      <% @bookings_pending.each do |booking| %>
 
+      <div id="booking_<%= booking.id %>" class="booking-container">
+        <div class="row">
+          <div class="col-sm-3">
+      <!--       One of three columns -->
+            <div class="card-booking" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= booking.field.picture %>');">
+              <div class="card-category-booking">
+                <%= image_tag booking.field.get_logo %>
+              </div>
+              <div class="card-description-booking">
+                <h2> <%= booking.field.name %> </h2>
+              </div>
+              <%= link_to booking.field, class: "card-link-booking" do%>
+              <% end  %>
+            </div>
+
+          </div>
+          <div class="col-sm-3">
+      <!--       One of three columns -->
+            <div class="card-booking">
+              <div class="card-detail-booking">
+                <p><strong>Renting User</strong></p>
+              </div>
+              <div class="card-description-detail-booking">
+                <p> <%= booking.user.email %></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+      <!--       One of three columns -->
+            <div class="card-booking">
+              <div class="card-detail-booking">
+                <p><strong>Time</strong></p>
+              </div>
+              <div class="card-description-detail-booking">
+                <p> <%= booking.start_date %> </p>
+                <p> <%= booking.end_date %> </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+      <!--       One of three columns -->
+          <div class="card-booking">
+            <div class="card-detail-booking">
+              <div class="form-status-1">
+              <%= render 'form_booking', field: @field, booking: @bookings_pending.find(booking.id) %>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
       </div>
-      <div class="col-sm-3">
-  <!--       One of three columns -->
+      <% end %>
+
+    <% else %>
+      <p>No pending booking</p>
+
+    <% end %>
+
+    <h1>Already treated bookings</h1>
+
+    <% @bookings_others.each do |booking| %>
+    <div id="booking_<%= booking.id %>" class="booking-container">
+      <div class="row">
+        <div class="col-sm-3">
+    <!--       One of three columns -->
+          <div class="card-booking" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= booking.field.picture %>');">
+            <div class="card-category-booking">
+              <%= image_tag booking.field.get_logo %>
+            </div>
+            <div class="card-description-booking">
+              <h2> <%= booking.field.name %> </h2>
+            </div>
+            <%= link_to booking.field, class: "card-link-booking" do%>
+            <% end  %>
+          </div>
+
+        </div>
+        <div class="col-sm-3">
+    <!--       One of three columns -->
+          <div class="card-booking">
+            <div class="card-detail-booking">
+              <p><strong>Renting User</strong></p>
+            </div>
+            <div class="card-description-detail-booking">
+              <p> <%= booking.user.email %> </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+    <!--       One of three columns -->
+          <div class="card-booking">
+            <div class="card-detail-booking">
+              <p><strong>Time</strong></p>
+            </div>
+            <div class="card-description-detail-booking">
+              <p> <%= booking.start_date %> </p>
+              <p> <%= booking.end_date %> </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+    <!--       One of three columns -->
         <div class="card-booking">
-          <div class="card-detail-booking">
-            <p>Renting User:</p>
-          </div>
-          <div class="card-description-detail-booking">
-            <p> <%= booking.user.email %> </p>
-          </div>
+          <% if booking.status == 'accepted' %>
+            <div class="card-detail-booking accepted-status">
+              <%= booking.status.upcase %>
+            </div>
+          <% else %>
+            <div class="card-detail-booking rejected-status">
+              <%= booking.status.upcase %>
+            </div>
+          <% end %>
         </div>
-      </div>
-      <div class="col-sm-3">
-  <!--       One of three columns -->
-        <div class="card-booking">
-          <div class="card-detail-booking">
-            <p>Time:</p>
-          </div>
-          <div class="card-description-detail-booking">
-            <p> <%= booking.start_date %> </p>
-            <p> <%= booking.end_date %> </p>
-          </div>
         </div>
-      </div>
-      <div class="col-sm-3">
-  <!--       One of three columns -->
-      <div class="card-booking">
-        <div class="card-detail-booking">
-          <div id="form-status-1">
-          <%= render 'form_booking', field: @field, booking: @bookings.find(booking.id) %>
-          </div>
-        </div>
-      </div>
       </div>
     </div>
+    <% end %>
   </div>
-  <% end %>
 </div>
