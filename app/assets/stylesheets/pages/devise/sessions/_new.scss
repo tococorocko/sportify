@@ -1,0 +1,17 @@
+#content, #sign-up-form {
+  background-color: white;
+  padding: 25px;
+  box-shadow: 4px 4px 2px 1px rgba(0, 0, 255, .2);
+  border-radius: 5px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  a {
+    color: $green;
+  }
+}
+
+#back-pic {
+  background-image: linear-gradient(-205deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.51) 50%), url('https://res.cloudinary.com/truxxu/image/upload/v1542984310/corner-field-football-field-240832.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
